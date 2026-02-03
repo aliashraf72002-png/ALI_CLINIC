@@ -115,6 +115,7 @@ export const translations: any = {
 
     // Gallery
     visualExperience: { en: 'Visual Experience', ar: 'تجربة بصرية' },
+    ourGallery: { en: 'Our Gallery', ar: 'معرضنا' },
     gallerySubtitle: { en: "Take a virtual tour of our modern facilities and see some of the incredible transformations we've achieved for our patients.", ar: 'قم بجولة افتراضية في مرافقنا الحديثة وشاهد بعض التحولات المذهلة التي حققناها لمرضانا.' },
     categoryAll: { en: 'All', ar: 'الكل' },
     categoryClinic: { en: 'Clinic', ar: 'العيادة' },
@@ -165,6 +166,34 @@ export const translations: any = {
     howCanWeHelp: { en: 'How can we help you?', ar: 'كيف يمكننا مساعدتك؟' },
     inquiryExample: { en: 'Inquiry about Orthodontics', ar: 'استفسار عن تقويم الأسنان' },
     johnDoe: { en: 'John Doe', ar: 'محمد أحمد' },
+
+    // Service & Gallery Details
+    backToServices: { en: 'Back to Services', ar: 'العودة للخدمات' },
+    aboutProcedure: { en: 'About the Procedure', ar: 'عن الإجراء' },
+    keyBenefits: { en: 'Key Benefits', ar: 'الفوائد الرئيسية' },
+    serviceGallery: { en: 'Service Gallery', ar: 'معرض الخدمة' },
+    bookThisService: { en: 'Book This Service', ar: 'احجز هذه الخدمة' },
+    availability: { en: 'Availability', ar: 'التوفر' },
+    flexibleScheduling: { en: 'Flexible Scheduling', ar: 'مواعيد مرنة' },
+    paymentOptions: { en: 'Payment Options', ar: 'خيارات الدفع' },
+    noPaymentRequiredNow: { en: 'No payment required at this step.', ar: 'لا يلزم الدفع في هذه الخطوة.' },
+    haveQuestions: { en: 'Have Questions?', ar: 'لديك أسئلة؟' },
+    contactDirectly: { en: 'Contact our team directly for immediate assistance.', ar: 'تواصل مع فريقنا مباشرة للحصول على مساعدة فورية.' },
+    viewDetails: { en: 'View Details', ar: 'عرض التفاصيل' },
+    backToGallery: { en: 'Back to Gallery', ar: 'العودة للمعرض' },
+    patient: { en: 'Patient', ar: 'المريض' },
+    verifiedCase: { en: 'Verified Case Study', ar: 'حالة طبية موثقة' },
+    overview: { en: 'Overview', ar: 'نظرة عامة' },
+    theProblem: { en: 'The Problem', ar: 'المشكلة' },
+    ourSolution: { en: 'Our Solution', ar: 'حلنا' },
+    professionalDetails: { en: 'Professional Details', ar: 'تفاصيل مهنية' },
+    interestedInSimilarResults: { en: 'Interested in similar results?', ar: 'مهتم بنتائج مماثلة؟' },
+    bookAConsultation: { en: 'Book a Consultation', ar: 'احجز استشارة' },
+    ourExpertise: { en: 'Our Expertise', ar: 'خبراتنا' },
+    procedurePerformedShort: { en: 'Performed by our expert team.', ar: 'يتم إجراؤها بواسطة فريق الخبراء لدينا.' },
+    exploreService: { en: 'Explore Service', ar: 'استكشاف الخدمة' },
+    pricingEstimate: { en: 'Pricing Estimate', ar: 'تقدير الأسعار' },
+    callEmergencyShort: { en: 'Call Emergency', ar: 'اتصال للطوارئ' },
 };
 
 interface LanguageContextType {

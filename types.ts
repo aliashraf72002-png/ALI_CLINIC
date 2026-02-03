@@ -5,8 +5,13 @@ export interface Service {
   nameAr: string;
   description: string;
   descriptionAr: string;
+  longDescriptionEn?: string;
+  longDescriptionAr?: string;
+  benefitsEn?: string[];
+  benefitsAr?: string[];
   icon: string;
   imageUrl: string;
+  galleryImages?: string[];
   pricing: {
     cost: string;
     installments: boolean;
@@ -35,6 +40,16 @@ export interface Testimonial {
 export interface GalleryItem {
   id: string;
   title: string;
+  titleAr?: string;
   category: 'Clinic' | 'Equipment' | 'Case' | 'Surgeries';
   imageUrl: string;
+  descriptionEn?: string;
+  descriptionAr?: string;
+  problemEn?: string;
+  problemAr?: string;
+  solutionEn?: string;
+  solutionAr?: string;
+  detailsEn?: string;
+  detailsAr?: string;
+  caseImages?: string[];
 }

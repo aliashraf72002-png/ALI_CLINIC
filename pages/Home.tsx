@@ -21,82 +21,124 @@ const Home: React.FC = () => {
   return (
     <div className="space-y-24 pb-20">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-            alt="Modern Dental Clinic"
-            className="w-full h-full object-cover opacity-10"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#228B22]/10 via-white to-[#228B22]/5"></div>
-        </div>
+      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-white">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50/50 rounded-l-[10rem] -z-10 hidden lg:block"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-[#228B22]/5 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#228B22]/5 rounded-full blur-3xl -z-10"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center pt-10">
-          <div className="space-y-8 text-center md:text-left">
-            <div className="inline-flex items-center space-x-2 bg-[#228B22]/10 text-[#228B22] px-4 py-2 rounded-full text-sm font-bold animate-pulse">
-              <Star size={16} fill="currentColor" />
-              <span>{t('badgeText')}</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            {/* Hero Content */}
+            <div className="lg:col-span-7 space-y-10 text-center lg:text-left">
+              <div className="inline-flex items-center gap-3 bg-gray-100/80 backdrop-blur-sm px-5 py-2.5 rounded-2xl border border-gray-200/50 shadow-sm animate-fade-in">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-gray-200"></div>
+                  ))}
+                </div>
+                <span className="text-xs font-black uppercase tracking-widest text-gray-500">
+                  {t('badgeText')}
+                </span>
+                <div className="flex text-yellow-400">
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                  <Star size={12} fill="currentColor" />
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 leading-[1.1] tracking-tighter">
+                  {t('heroTitle1')} <br />
+                  <span className="relative">
+                    <span className="relative z-10 text-[#228B22]">{t('heroTitle2')}</span>
+                    <span className="absolute bottom-2 left-0 w-full h-4 bg-[#228B22]/10 -z-10"></span>
+                  </span>
+                </h1>
+
+                <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                  {t('heroSubtitle')}
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-4">
+                <Link
+                  to="/book"
+                  className="group relative overflow-hidden bg-[#228B22] text-white px-10 py-6 rounded-[2rem] text-xl font-black shadow-[0_20px_40px_-10px_rgba(34,139,34,0.4)] hover:shadow-[0_25px_50px_-12px_rgba(34,139,34,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto text-center"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    {t('bookAppointment')}
+                    <ArrowRight size={24} className={language === 'ar' ? 'rotate-180 transition-transform group-hover:-translate-x-2' : 'transition-transform group-hover:translate-x-2'} />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </Link>
+
+                <Link
+                  to="/services"
+                  className="bg-white text-gray-900 border-2 border-gray-100 px-10 py-6 rounded-[2rem] text-xl font-black shadow-sm hover:shadow-xl hover:border-[#228B22]/20 transition-all w-full sm:w-auto text-center"
+                >
+                  {t('services')}
+                </Link>
+              </div>
+
+              {/* Trusted By / Stats */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-12 pt-10">
+                <div className="flex flex-col">
+                  <span className="text-4xl font-black text-gray-900 tracking-tighter tabular-nums">15+</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#228B22]">{t('yearsExp')}</span>
+                </div>
+                <div className="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                <div className="flex flex-col">
+                  <span className="text-4xl font-black text-gray-900 tracking-tighter tabular-nums">10k+</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#228B22]">{t('happyPatients')}</span>
+                </div>
+                <div className="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                <div className="flex flex-col">
+                  <span className="text-4xl font-black text-gray-900 tracking-tighter tabular-nums">4.9<span className="text-xl text-gray-400">/5</span></span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#228B22]">{t('patientRating')}</span>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
-              {t('heroTitle1')} <br />
-              <span className="text-[#228B22]">{t('heroTitle2')}</span>
-            </h1>
+            {/* Hero Image Group */}
+            <div className="lg:col-span-5 relative hidden lg:block">
+              <div className="relative z-10 animate-float">
+                <div className="absolute -inset-10 bg-[#228B22]/10 rounded-[5rem] blur-3xl -z-10"></div>
 
-            <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
-              {t('heroSubtitle')}
-            </p>
+                {/* Main Image */}
+                <div className="relative rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-[12px] border-white ring-1 ring-gray-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Professional Dental Care"
+                    className="w-full aspect-[4/5] object-cover scale-105 hover:scale-100 transition-transform duration-1000"
+                  />
 
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link
-                to="/book"
-                className="bg-[#228B22] text-white px-8 py-4 rounded-2xl text-lg font-bold shadow-xl hover:bg-[#1a6b1a] transition-all transform hover:-translate-y-1 flex items-center space-x-2 w-full sm:w-auto justify-center"
-              >
-                <span>{t('bookAppointment')}</span>
-                <ArrowRight size={20} className={language === 'ar' ? 'rotate-180' : ''} />
-              </Link>
-              <Link
-                to="/services"
-                className="bg-white text-gray-800 border-2 border-gray-100 px-8 py-4 rounded-2xl text-lg font-bold shadow-sm hover:shadow-md transition-all w-full sm:w-auto justify-center text-center"
-              >
-                {t('ourServices')}
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-center md:justify-start space-x-8 pt-4">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-gray-900">15+</span>
-                <span className="text-gray-500 text-sm">{t('yearsExp')}</span>
-              </div>
-              <div className="w-px h-10 bg-gray-200"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-gray-900">10k+</span>
-                <span className="text-gray-500 text-sm">{t('happyPatients')}</span>
-              </div>
-              <div className="w-px h-10 bg-gray-200"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-gray-900">4.9/5</span>
-                <span className="text-gray-500 text-sm">{t('patientRating')}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden md:block relative animate-float">
-            <div className="absolute -inset-4 bg-[#228B22]/20 rounded-[4rem] blur-3xl"></div>
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
-              <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Smiling Professional Doctor"
-                className="w-full h-auto"
-              />
-              <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur px-6 py-4 rounded-2xl shadow-lg border border-white/50">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-[#228B22] rounded-full flex items-center justify-center text-white">
-                    <Smile size={24} />
+                  {/* Floating Badge */}
+                  <div className="absolute bottom-10 left-10 right-10">
+                    <div className="bg-white/90 backdrop-blur-xl p-6 rounded-[2rem] shadow-2xl border border-white/50 transform hover:scale-105 transition-transform duration-500">
+                      <div className="flex items-center gap-5">
+                        <div className="w-16 h-16 bg-[#228B22] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#228B22]/30">
+                          <ShieldCheck size={32} />
+                        </div>
+                        <div>
+                          <p className="text-lg font-black font-sans text-gray-900">{t('certifiedSpecialists')}</p>
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+                            <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">{t('boardCertified')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-gray-900">{t('certifiedSpecialists')}</p>
-                    <p className="text-xs text-gray-500">{t('boardCertified')}</p>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full shadow-2xl flex items-center justify-center border-[8px] border-gray-50 animate-bounce-slow">
+                  <div className="text-center">
+                    <p className="text-3xl font-black text-[#228B22] tracking-tighter">100%</p>
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('painless')}</p>
                   </div>
                 </div>
               </div>
@@ -105,61 +147,132 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Trust Badges / Stats */}
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-2">
-              <ShieldCheck className="text-[#228B22] w-10 h-10" />
-              <p className="font-bold">{t('fdaApproved')}</p>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <Stethoscope className="text-[#228B22] w-10 h-10" />
-              <p className="font-bold">{t('expertDoctors')}</p>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <Clock className="text-[#228B22] w-10 h-10" />
-              <p className="font-bold">{t('support247')}</p>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <MapPin className="text-[#228B22] w-10 h-10" />
-              <p className="font-bold">{t('primeLocation')}</p>
-            </div>
+      {/* Trust Badges / Stats Slider */}
+      <section className="bg-gray-50/50 py-10 overflow-hidden border-y border-gray-100">
+        <div className="relative flex overflow-hidden">
+          <div className="flex animate-scroll whitespace-nowrap gap-16 md:gap-32 px-4">
+            {/* We repeat the content to create a seamless loop */}
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex gap-16 md:gap-32 shrink-0 items-center">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#228B22] shadow-sm">
+                    <ShieldCheck size={28} />
+                  </div>
+                  <span className="text-xl font-black text-gray-900 tracking-tight">{t('fdaApproved')}</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#228B22] shadow-sm">
+                    <Stethoscope size={28} />
+                  </div>
+                  <span className="text-xl font-black text-gray-900 tracking-tight">{t('expertDoctors')}</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#228B22] shadow-sm">
+                    <Clock size={28} />
+                  </div>
+                  <span className="text-xl font-black text-gray-900 tracking-tight">{t('support247')}</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#228B22] shadow-sm">
+                    <MapPin size={28} />
+                  </div>
+                  <span className="text-xl font-black text-gray-900 tracking-tight">{t('primeLocation')}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-[#228B22] font-bold tracking-widest uppercase text-sm">{t('ourSpecialties')}</h2>
-          <h3 className="text-4xl font-extrabold text-gray-900">{t('comprehensiveSolutions')}</h3>
-          <p className="text-gray-500 max-w-2xl mx-auto">{t('servicesDesc')}</p>
-        </div>
+      {/* Services Overview / Specialties */}
+      <section className="relative py-12 overflow-hidden">
+        {/* Decorative corner elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#228B22]/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#228B22]/5 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SERVICES.slice(0, 6).map((service) => (
-            <div key={service.id} className="group bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-[#228B22]/20 transition-all duration-300">
-              <div className="w-14 h-14 bg-[#228B22]/10 rounded-2xl flex items-center justify-center text-[#228B22] mb-6 group-hover:bg-[#228B22] group-hover:text-white transition-all">
-                {ICON_MAP[service.icon]}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="space-y-4 max-w-2xl">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-px bg-[#228B22]"></div>
+                <h2 className="text-[#228B22] font-black tracking-[0.2em] uppercase text-xs">{t('ourSpecialties')}</h2>
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2">{language === 'ar' ? service.nameAr : service.nameEn}</h4>
-              <p className="text-sm font-medium text-[#228B22] mb-3">{language === 'ar' ? service.nameEn : service.nameAr}</p>
-              <p className="text-gray-500 leading-relaxed text-sm mb-6">
-                {language === 'ar' ? service.descriptionAr : service.description}
+              <h3 className="text-4xl md:text-6xl font-black text-gray-900 leading-none tracking-tighter">
+                {t('comprehensiveSolutions')}
+              </h3>
+              <p className="text-lg text-gray-500 font-medium">
+                {t('servicesDesc')}
               </p>
-              <Link to="/services" className="inline-flex items-center text-[#228B22] font-bold text-sm hover:underline">
-                {t('learnMore')} <ChevronRight size={16} className={language === 'ar' ? 'rotate-180' : ''} />
-              </Link>
             </div>
-          ))}
-        </div>
 
-        <div className="text-center mt-12">
-          <Link to="/services" className="inline-flex items-center space-x-2 text-gray-500 font-semibold hover:text-[#228B22] transition-colors">
-            <span>{t('viewAllServices')}</span>
-            <ArrowRight size={18} className={language === 'ar' ? 'rotate-180' : ''} />
-          </Link>
+            <Link
+              to="/services"
+              className="group flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-2xl font-black text-sm hover:bg-black transition-all shadow-xl shadow-gray-200"
+            >
+              <span>{t('viewAllServices')}</span>
+              <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                <ArrowRight size={14} className={language === 'ar' ? 'rotate-180' : ''} />
+              </div>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.slice(0, 6).map((service, idx) => (
+              <div
+                key={service.id}
+                className="group relative bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_60px_-15px_rgba(34,139,34,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+              >
+                {/* Card Background Accent */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#228B22]/5 rounded-full group-hover:scale-[3] transition-transform duration-700"></div>
+
+                {/* Icon & ID */}
+                <div className="flex justify-between items-start mb-10 relative z-10">
+                  <div className="w-16 h-16 bg-[#228B22] text-white rounded-[1.25rem] flex items-center justify-center shadow-[0_10px_20px_-5px_rgba(34,139,34,0.4)] group-hover:rotate-6 transition-transform">
+                    {React.cloneElement(ICON_MAP[service.icon] as React.ReactElement, { size: 32 })}
+                  </div>
+                  <span className="text-5xl font-black text-gray-50 font-sans tracking-tighter select-none">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <div className="relative z-10 space-y-4">
+                  <div>
+                    <h4 className="text-2xl font-black text-gray-900 tracking-tight group-hover:text-[#228B22] transition-colors">
+                      {language === 'ar' ? service.nameAr : service.nameEn}
+                    </h4>
+                    <p className="text-xs font-black uppercase tracking-widest text-[#228B22]/60 mt-1">
+                      {language === 'ar' ? service.nameEn : service.nameAr}
+                    </p>
+                  </div>
+
+                  <p className="text-gray-500 leading-relaxed font-medium">
+                    {language === 'ar' ? service.descriptionAr : service.description}
+                  </p>
+
+                  <div className="pt-6">
+                    <Link
+                      to={`/services/${service.id}`}
+                      className="inline-flex items-center gap-2 text-gray-900 font-black text-sm group/btn"
+                    >
+                      <span className="relative">
+                        {t('learnMore')}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#228B22] transition-all group-hover/btn:w-full"></span>
+                      </span>
+                      <ChevronRight
+                        size={16}
+                        className={`text-[#228B22] transition-transform group-hover/btn:translate-x-1 ${language === 'ar' ? 'rotate-180' : ''}`}
+                      />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Corner Decorative Arrow */}
+                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-10 group-hover:scale-150 transition-all duration-500 text-[#228B22]">
+                  {ICON_MAP[service.icon]}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
